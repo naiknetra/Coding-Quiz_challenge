@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Word Guess Game</title>
+    <title>Coding Quiz Challenge</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    
   </head>
   <body>
     <header>
-      <div class= "large-font">Coding Quiz Challenge</div>
-      <button class="start-button">Start Now</button>
+      <nav>
+        <ul>
+        <li>Time: span</li>
+        <li>View high scores</li>
+        </ul>
+        </nav>
     </header>
+    <main>
+    <section id="quiz">
+      <h1>Coding Quiz Challenge</h1>
+      <p>Try to answer the following code-related questions within the time limit.
+        Keep in mind that incorrect answers will penalize your score/time 
+        by ten seconds
+      </p>
+      <button class="start-button" id="btnStart">Start Now</button>
+      </section>
+    
+    
+      <section id="question" class="hide">
+        <h2>Commonly used data types Do Not include:</h2>
+        <ol>
+          <li><button value="0" class="btnQ1">Strings</button></li>
+          <li><button value="1" class="btnQ1">Booleans</button></li>
+          <li><button value="2" class="btnQ1">Alerts</button></li>
+          <li><button value="3" class="btnQ1">Numbers</button></li>
+        </ol>
+      </section>
+      <section id="input-initials" class="hide">
+        <h3>Enter initials:<input type="text" /></h3>
+        <button class="small-button">Submit</button>
+      </section>
+      <section id="score" class="hide" >
+        <h4>High score</h4>
+        <ol>
+          <li>Initial-score</li>
+        </ol>
+        <button class="small-button">Go back</button>
+        <button class="small-button">Clear high score</button>
+      </section>
+
+    </main>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
