@@ -68,7 +68,7 @@
     display:inline;
   }
 
-  .submitBtn {
+  #submitBtn {
     text-align: center;
     margin-left:47%;
     padding:12px;
@@ -76,11 +76,15 @@
   }
  .viewBtn {
   float:left;
-  font-size:x-large;
- }
+  font-size:large;
+  background-color:#809eb9;
+  padding:10px
+  }
+ 
  .time {
   float:right;
   font-size:x-large;
+  margin-top:28px;
  }
  h4 {
   text-align: center;

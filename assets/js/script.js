@@ -1,6 +1,13 @@
 //set timer
 //selects element by class
 var timeEl = document.querySelector(".time");
+var submitBtn = document.querySelector("#submitBtn");
+var highScoreBtn = document.querySelector("#counter");
+
+
+//showes current score and final score
+var currentScore = 0;
+var constAnsPoint = 10;
 
 //  Selects element by id
 //var mainEl = document.getElementById("main");
@@ -59,7 +66,7 @@ function showNextSection(i, result) {
     allSections[i].setAttribute("class", "show");
     allSections[i - 1].setAttribute("class", "hide");
     var eleSpanResult = allSections[i].querySelector(".qResult");
-    eleSpanResult.innerText = result;
+    //eleSpanResult.innerText = result;
     //show final score everytime section changes
     var eleFinalScore = document.getElementById("pFinalScore");
     eleFinalScore.innerHTML = "Your final score is:" + currentScore +".";
@@ -114,9 +121,31 @@ function checkAnswer2(event) {
 for (var i = 0; i < listBtnQ2.length; i++) {
     listBtnQ2[i].addEventListener("click", checkAnswer2);
 }
-//showes current score and final score
-var currentScore = 0;
-var constAnsPoint = 10;
+
+function saveToLocalStorage(event) {
+    event.preventDefault();
+    var userInitials = document.querySelector("#initials").value;
+    var quizObject = {
+        initials: userInitials,
+        score: currentScore
+
+    }
+}
+
+function renderMessage() {
+ var localStorageData = JSON.parse(localStorage.getItem("quizData"));
+ if ( localStorageData !== null){
+    //localStorageData.push(quizObject)
+}
+ else {
+    localStorageData = []
+    localStorageData.push(quizObject)
+    
+
+ }
+
+
+ localStorage.setItem("quizData", JSON.stringify(localStorageData))
 
 
 
@@ -124,3 +153,8 @@ var constAnsPoint = 10;
 
 
 
+
+
+
+   
+}
