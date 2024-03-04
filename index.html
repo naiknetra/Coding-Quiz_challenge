@@ -9,16 +9,17 @@
   </head>
   <body>
     <header>
+      <h1>Coding Quiz Challenge</h1>
       <nav>
-        <ul>
-        <li><a class="time">Time:0</a></li>
-        <li><a>View high scores</a></li>
-        </ul>
+        <a class="viewBtn">View high scores</a>
+        <a class="time">Time:0</a>
+        
+       
         </nav>
     </header>
     <main>
     <section id="quiz">
-      <h1>Coding Quiz Challenge</h1>
+      
       <p>Try to answer the following code-related questions within the time limit.
         Keep in mind that incorrect answers will penalize your score/time 
         by ten seconds
@@ -51,19 +52,19 @@
       </section>
 
       <section id="input-initials" class="hide">
-        <h4>Enter initials:<input type="text" ></h4>
-        <button class="small-button">Submit</button>
+        <h4>All done!</h4>
+        <p id="pFinalScore"></p>
+        <p>Enter initials:<input type="text" ></p>
+        <button class="submitBtn">Submit</button>
         <hr>
         <p class="qResult"></p>
       </section>
 
       <section id="score" class="hide" >
         <h4>High score</h4>
-        <ol>
-          <li>Initial-score</li>
-        </ol>
-        <button class="small-button">Go back</button>
-        <button class="small-button">Clear high score</button>
+        
+        <button class="small-button" id="idGoback">Go back</button>
+        <button class="small-button" id="idBtnClear">Clear high score</button>
       </section>
 
     </main>

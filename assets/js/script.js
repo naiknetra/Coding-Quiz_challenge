@@ -60,6 +60,9 @@ function showNextSection(i, result) {
     allSections[i - 1].setAttribute("class", "hide");
     var eleSpanResult = allSections[i].querySelector(".qResult");
     eleSpanResult.innerText = result;
+    //show final score everytime section changes
+    var eleFinalScore = document.getElementById("pFinalScore");
+    eleFinalScore.innerHTML = "Your final score is:" + currentScore +".";
 }
 
 for (var i = 0; i < listBtnQ1.length; i++) {
@@ -81,6 +84,8 @@ function checkAnswer1(event) {
     var btnValue = btnElementQ1.getAttribute("value");
     if (btnValue === "2") {
         isQ1AnswerCorrect = "Correct!";
+        currentScore = currentScore + constAnsPoint;  
+
     }
     else {
         isQ1AnswerCorrect = "Wrong!";
@@ -97,6 +102,7 @@ function checkAnswer2(event) {
     var btnValue = btnElementQ2.getAttribute("value");
     if (btnValue === "3") {
         isQ2AnswerCorrect = "Correct!";
+        currentScore = currentScore + constAnsPoint;        
     }
     else {
         isQ2AnswerCorrect = "Wrong!";
@@ -108,6 +114,9 @@ function checkAnswer2(event) {
 for (var i = 0; i < listBtnQ2.length; i++) {
     listBtnQ2[i].addEventListener("click", checkAnswer2);
 }
+//showes current score and final score
+var currentScore = 0;
+var constAnsPoint = 10;
 
 
 
