@@ -37,9 +37,6 @@ function setTime() {
     }, 1000);
 
 }
-
-
-
 // Access multiple button options for answer 1
 var listBtnQ1 = document.querySelectorAll(".btnQ1");
 // Access multiple button options for answer 2
@@ -58,15 +55,14 @@ function showQuestionOne(event) {
 btnStart.addEventListener("click", showQuestionOne);
 
 
-
-
 //Shows the section whose index number is passed as a parameter and hides the previous section
 
 function showNextSection(i, result) {
     allSections[i].setAttribute("class", "show");
     allSections[i - 1].setAttribute("class", "hide");
     var eleSpanResult = allSections[i].querySelector(".qResult");
-    //eleSpanResult.innerText = result;
+    if (eleSpanResult !== null) {
+    eleSpanResult.innerText = result;}
     //show final score everytime section changes
     var eleFinalScore = document.getElementById("pFinalScore");
     eleFinalScore.innerHTML = "Your final score is:" + currentScore +".";
@@ -122,39 +118,59 @@ for (var i = 0; i < listBtnQ2.length; i++) {
     listBtnQ2[i].addEventListener("click", checkAnswer2);
 }
 
-function saveToLocalStorage(event) {
+var eleBtnSubmit = document.getElementById("btnSubmit");
+var eleInitials = document.querySelector("#initials");
+function submitScore(event) {
     event.preventDefault();
-    var userInitials = document.querySelector("#initials").value;
-    var quizObject = {
-        initials: userInitials,
-        score: currentScore
-
+    var initials = eleInitials.value;    
+    console.log("initials entered are:" + initials);
+    var highScore = localStorage.getItem(initials);
+    //if highscore is not stored in the locxal storage previously that means 
+    //the questionaire is filled out for the first time
+    if (highScore !== null){
+        highScore = 0;
     }
-}
+    if ( currentScore> highScore){
+        localStorage.setItem(initials, currentScore);
+    }
 
-function renderMessage() {
- var localStorageData = JSON.parse(localStorage.getItem("quizData"));
- if ( localStorageData !== null){
-    //localStorageData.push(quizObject)
+
 }
- else {
-    localStorageData = []
-    localStorageData.push(quizObject)
+eleBtnSubmit.addEventListener("click" , submitScore);
+
+
+    
+    //var count = localStorage.getItem("count");
+
+
+
+
+
+
+// function saveToLocalStorage(event) {
+//     event.preventDefault();
+//     var userInitials = document.querySelector("#initials").value;
+//     var quizObject = {
+//         initials: userInitials,
+//         score: currentScore
+
+//     }
+// }
+
+// function renderMessage() {
+//  var localStorageData = JSON.parse(localStorage.getItem("quizData"));
+//  if ( localStorageData !== null){
+//     //localStorageData.push(quizObject)
+// }
+//  else {
+//     localStorageData = []
+//     localStorageData.push(quizObject)
     
 
- }
+//  }
 
 
- localStorage.setItem("quizData", JSON.stringify(localStorageData))
-
-
-
+//  localStorage.setItem("quizData", JSON.stringify(localStorageData));
 
 
 
-
-
-
-
-   
-}
