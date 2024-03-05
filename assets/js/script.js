@@ -131,10 +131,12 @@ function submitScore(event) {
         highScore = 0;
     }
     if ( currentScore> highScore){
-        localStorage.setItem(initials, currentScore);
+        highScore = currentScore;
+        localStorage.setItem(initials, highScore);
+       
     }
 
-
+showNextSection(4,highScore);
 }
 eleBtnSubmit.addEventListener("click" , submitScore);
 
